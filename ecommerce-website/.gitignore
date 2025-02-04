@@ -1,0 +1,35 @@
+# Ignore Maven build output
+target/
+
+# Ignore IDE-related files (IntelliJ, Eclipse, VS Code, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts like logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore test output directories (optional, depends on your project setup)
+**/target/
+
+# Allow Maven Wrapper files (important for reproducible builds)
+!mvnw
+!mvnw.cmd
+!.mvn/wrapper/maven-wrapper.jar
+
+# Allow source files and configuration
+!pom.xml
+!src/
+!**/src/main/resources/application*.properties
+!**/src/main/resources/*.yml
