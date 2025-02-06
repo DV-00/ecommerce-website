@@ -33,3 +33,5 @@ Thumbs.db
 !src/
 !**/src/main/resources/application*.properties
 !**/src/main/resources/*.yml
+HELP.md
+.gitattributes
