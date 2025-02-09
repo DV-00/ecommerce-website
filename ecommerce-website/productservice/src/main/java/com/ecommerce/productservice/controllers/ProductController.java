@@ -1,7 +1,7 @@
 package com.ecommerce.productservice.controllers;
 
 import com.ecommerce.productservice.models.Product;
-import com.ecommerce.productservice.services.ProductService;
+import com.ecommerce.productservice.services.FakeStoreProductService;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
@@ -10,19 +10,19 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/products")
 public class ProductController {
 
-    private final ProductService productService;
+    private final FakeStoreProductService fakeStoreProductService;
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    public ProductController(FakeStoreProductService fakeStoreProductService) {
+        this.fakeStoreProductService = fakeStoreProductService;
     }
 
     @GetMapping("/{id}")
     public Mono<Product> getProductById(@PathVariable("id") long id) {
-        return productService.getProductById(id);
+        return fakeStoreProductService.getProductById(id);
     }
 
     @GetMapping
     public Flux<Product> getProducts() {
-        return productService.getAllProducts();
+        return fakeStoreProductService.getAllProducts();
     }
 }

@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
 @Service
-public class FakeStoreProductServiceImpl implements ProductService {
+public class FakeStoreProductServiceImpl implements FakeStoreProductService {
 
     private final WebClient webClient;
 
