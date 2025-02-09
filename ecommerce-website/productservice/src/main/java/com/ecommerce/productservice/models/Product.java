@@ -1,5 +1,6 @@
 package com.ecommerce.productservice.models;
-import jakarta.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Data;
 
 @Data
@@ -8,8 +9,6 @@ public class Product {
     private long id;
 
     private String title;
-
-    private double price;
 
     private String description;
 

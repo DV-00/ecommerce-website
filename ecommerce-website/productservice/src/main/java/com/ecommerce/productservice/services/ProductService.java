@@ -1,11 +1,14 @@
 package com.ecommerce.productservice.services;
 
 import com.ecommerce.productservice.models.Product;
+import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 import java.util.List;
 
 public interface ProductService {
 
-    public Product getProductById(long id);
+    Mono<Product> getProductById(long id);
 
-    public List<Product> getAllProducts();
+    Flux<Product> getAllProducts();
+
 }
