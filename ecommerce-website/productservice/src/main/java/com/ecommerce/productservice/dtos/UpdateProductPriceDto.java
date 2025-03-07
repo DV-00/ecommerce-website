@@ -1,12 +1,11 @@
 package com.ecommerce.productservice.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.Min;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class UpdateProductPriceDto {
 
+    @Min(value = 1, message = "Updated price must be greater than 0")
     private double updatedPrice;
-
 }

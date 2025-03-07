@@ -1,24 +1,34 @@
 package com.ecommerce.productservice.services;
 
+import com.ecommerce.productservice.dtos.CreateProductRequestDto;
+import com.ecommerce.productservice.dtos.UpdateProductImageDto;
+import com.ecommerce.productservice.dtos.UpdateProductPriceDto;
+import com.ecommerce.productservice.dtos.UpdateProductQuantityDto;
 import com.ecommerce.productservice.models.Product;
-import com.ecommerce.productservice.repositories.ProductRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface ProductService {
 
-    public Product getProductById(long id);
+    Product getProductById(long id);
 
-    public List<Product> getAllProducts();
+    Page<Product> getAllProducts(Pageable pageable);
 
-    public Product createProduct(String title, String descrption, String image, double price, String category);
+    Product createProduct(String token, CreateProductRequestDto createProductRequestDto);
 
-    public Product updateProductPrice(long productId, double updatedPrice);
+    Product updateProductPrice(String token, long productId, UpdateProductPriceDto updateProductPriceDto);
 
-    public Product updateProductImage(long productId, String updatedImage);
+    Product updateProductImage(String token, long productId, UpdateProductImageDto updateProductImageDto);
 
-    public boolean deleteProduct(long ProductId);
+    Product updateProductQuantity(String token, long productId, UpdateProductQuantityDto updateProductQuantityDto);
+
+    boolean deleteProduct(String token, long productId);
+
+    int getProductStock(long productId);
+
+    boolean reduceStock(long productId, int quantity);
+
+    void increaseStock(long productId, int quantity);
 
 }

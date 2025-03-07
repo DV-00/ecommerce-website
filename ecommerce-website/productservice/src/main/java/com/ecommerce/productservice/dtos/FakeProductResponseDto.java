@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FakeProductProductResponseDto {
+public class FakeProductResponseDto {
 
         private long id;
 

@@ -1,14 +1,17 @@
 package com.ecommerce.productservice.services;
 
+import com.ecommerce.productservice.dtos.*;
 import com.ecommerce.productservice.models.Category;
 import com.ecommerce.productservice.models.Product;
-import com.ecommerce.productservice.dtos.FakeProductProductResponseDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
 import java.util.List;
+
 
 @Service("fakestore")
 public class FakeStoreProductServiceImpl implements ProductService {
@@ -19,7 +22,7 @@ public class FakeStoreProductServiceImpl implements ProductService {
         this.webClient = webClientBuilder.baseUrl("https://fakestoreapi.com").build();
     }
 
-    private Product convertToProduct(FakeProductProductResponseDto dto) {
+    private Product convertToProduct(FakeProductResponseDto dto) {
         Product product = new Product();
         product.setId(dto.getId());
         product.setTitle(dto.getTitle());
@@ -43,43 +46,72 @@ public class FakeStoreProductServiceImpl implements ProductService {
                 .onStatus(HttpStatusCode::isError, response ->
                         Mono.error(new RuntimeException("Failed to fetch product with ID: " + id))
                 )
-                .bodyToMono(FakeProductProductResponseDto.class)
+                .bodyToMono(FakeProductResponseDto.class)
                 .map(this::convertToProduct)  // Convert DTO to Product
                 .block();
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        return webClient.get()
+    public Page<Product> getAllProducts(Pageable pageable) {
+        List<Product> productList = webClient.get()
                 .uri("/products")
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, response ->
                         Mono.error(new RuntimeException("Failed to fetch products from FakeStore API"))
                 )
-                .bodyToFlux(FakeProductProductResponseDto.class)
+                .bodyToFlux(FakeProductResponseDto.class)
                 .map(this::convertToProduct)  // Convert DTO to Product
                 .collectList()
-                .block();
+                .block(); // Blocking call to fetch data synchronously
+
+        // Manually implement pagination using Pageable
+        int start = (int) pageable.getOffset();
+        int end = Math.min((start + pageable.getPageSize()), productList.size());
+
+        List<Product> paginatedProducts = productList.subList(start, end);
+        return new PageImpl<>(paginatedProducts, pageable, productList.size());
     }
 
+
     @Override
-    public Product createProduct(String title, String descrption, String image, double price, String category) {
+    public Product createProduct(String token, CreateProductRequestDto createProductRequestDto) {
         return null;
     }
 
     @Override
-    public Product updateProductPrice(long productId, double updatedPrice) {
+    public Product updateProductPrice(String token, long productId, UpdateProductPriceDto updateProductPriceDto) {
         return null;
     }
 
     @Override
-    public Product updateProductImage(long productId, String updatedImage) {
+    public Product updateProductImage(String token, long productId, UpdateProductImageDto updateProductImageDto) {
         return null;
     }
 
     @Override
-    public boolean deleteProduct(long ProductId) {
+    public Product updateProductQuantity(String token, long productId, UpdateProductQuantityDto updateProductQuantityDto) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteProduct(String token, long productId) {
         return false;
     }
+
+    @Override
+    public int getProductStock(long productId) {
+        return 0;
+    }
+
+    @Override
+    public boolean reduceStock(long productId, int quantity) {
+        return false;
+    }
+
+    @Override
+    public void increaseStock(long productId, int quantity) {
+
+    }
+
 
 }

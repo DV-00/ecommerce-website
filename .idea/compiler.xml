@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="paymentservice" />
         <module name="productservice" />
       </profile>
-      <profile name="Annotation profile for ecommerce-website" enabled="true">
+      <profile name="Annotation profile for userservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -17,7 +18,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/unknown/spring-boot-configuration-processor-unknown.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="paymentservice" />
+        <module name="userservice" />
         <module name="cartservice" />
         <module name="orderservice" />
       </profile>
@@ -27,8 +28,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cartservice" options="-parameters" />
       <module name="orderservice" options="-parameters" />
-      <module name="paymentservice" options="-parameters" />
+      <module name="paymentservice" options="-parameters --enable-preview" />
       <module name="productservice" options="-parameters --enable-preview" />
+      <module name="userservice" options="-parameters" />
     </option>
   </component>
 </project>
