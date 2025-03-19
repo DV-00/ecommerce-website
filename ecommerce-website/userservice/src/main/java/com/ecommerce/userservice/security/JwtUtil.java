@@ -3,7 +3,6 @@ package com.ecommerce.userservice.security;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
-
 import javax.crypto.SecretKey;
 import java.util.Date;
 
@@ -13,7 +12,7 @@ public class JwtUtil {
     private static final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 hours
 
-    // ✅ Generate token with role
+    // Generate token with role
     public String generateToken(String username, String role) {
         return Jwts.builder()
                 .setSubject(username)
@@ -24,7 +23,7 @@ public class JwtUtil {
                 .compact();
     }
 
-    // ✅ Extract email from token
+    // Extract email from token
     public String extractUsername(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET_KEY)
@@ -34,7 +33,7 @@ public class JwtUtil {
                 .getSubject();
     }
 
-    // ✅ Extract role from token
+    // Extract role from token
     public String extractRole(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET_KEY)
@@ -44,7 +43,7 @@ public class JwtUtil {
                 .get("role", String.class);  // Extract role claim
     }
 
-    // ✅ Validate token with role check
+    // Validate token with role check
     public boolean validateToken(String token, String email, String requiredRole) {
         String tokenEmail = extractUsername(token);
         String tokenRole = extractRole(token);
@@ -54,7 +53,7 @@ public class JwtUtil {
                 && !isTokenExpired(token);
     }
 
-    // ✅ Check if token is expired
+    // Check if token is expired
     private boolean isTokenExpired(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET_KEY)

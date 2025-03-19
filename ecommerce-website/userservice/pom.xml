@@ -52,12 +52,13 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok for reducing boilerplate code -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <version>1.18.30</version>  <!-- Use latest version -->
+            <scope>compile</scope>  <!-- Provided scope is incorrect -->
         </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

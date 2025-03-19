@@ -15,7 +15,6 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-
     @Override
     public Category createCategory(String name) {
         Category category = new Category();

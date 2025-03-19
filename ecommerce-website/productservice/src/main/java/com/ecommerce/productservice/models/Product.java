@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-
 @Data
 @Entity
 @Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"title", "category_id"})})
@@ -18,11 +17,8 @@ public class Product implements Serializable {
     private long id;
 
     private String title;
-
     private double price;
-
     private String description;
-
     private String image;
 
     @ManyToOne
@@ -30,5 +26,4 @@ public class Product implements Serializable {
 
     @Column(nullable = false)
     private int quantity = 0;
-
 }

@@ -12,7 +12,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import java.util.List;
 
-
 @Service("fakestore")
 public class FakeStoreProductServiceImpl implements ProductService {
 
@@ -37,7 +36,6 @@ public class FakeStoreProductServiceImpl implements ProductService {
         return product;
     }
 
-
     @Override
     public Product getProductById(long id) {
         return webClient.get()
@@ -47,7 +45,7 @@ public class FakeStoreProductServiceImpl implements ProductService {
                         Mono.error(new RuntimeException("Failed to fetch product with ID: " + id))
                 )
                 .bodyToMono(FakeProductResponseDto.class)
-                .map(this::convertToProduct)  // Convert DTO to Product
+                .map(this::convertToProduct)
                 .block();
     }
 
@@ -62,16 +60,15 @@ public class FakeStoreProductServiceImpl implements ProductService {
                 .bodyToFlux(FakeProductResponseDto.class)
                 .map(this::convertToProduct)  // Convert DTO to Product
                 .collectList()
-                .block(); // Blocking call to fetch data synchronously
+                .block();
 
-        // Manually implement pagination using Pageable
+        // implement pagination using Pageable
         int start = (int) pageable.getOffset();
         int end = Math.min((start + pageable.getPageSize()), productList.size());
 
         List<Product> paginatedProducts = productList.subList(start, end);
         return new PageImpl<>(paginatedProducts, pageable, productList.size());
     }
-
 
     @Override
     public Product createProduct(String token, CreateProductRequestDto createProductRequestDto) {
@@ -113,5 +110,8 @@ public class FakeStoreProductServiceImpl implements ProductService {
 
     }
 
+    @Override
+    public void restoreStock(Long productId, Integer quantity) {
 
+    }
 }

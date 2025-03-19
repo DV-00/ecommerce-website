@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Map;
 
-
 public interface CartService {
 
     CartResponseDTO addToCart(CartRequestDTO requestDTO);

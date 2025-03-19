@@ -10,7 +10,6 @@ import com.ecommerce.userservice.repositories.UserRepository;
 import com.ecommerce.userservice.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -26,7 +25,7 @@ public class UserServiceImpl implements UserService {
         this.jwtUtil = jwtUtil;
     }
 
-    // ✅ Register new user
+    // Register new user
     @Override
     public User registerUser(RegisterUserRequestDto registerUserRequestDto) {
         User user = new User();
@@ -37,24 +36,21 @@ public class UserServiceImpl implements UserService {
         String encodedPassword = passwordEncoder.encode(registerUserRequestDto.getPassword());
         user.setPassword(encodedPassword);
 
-        // Assign role, default to "CUSTOMER"
         user.setRole(registerUserRequestDto.getRole() != null ? registerUserRequestDto.getRole() : "CUSTOMER");
 
         return userRepository.save(user);
     }
 
-    // ✅ Login user and generate JWT with role
+    // Login user and generate JWT with role
     @Override
     public String loginUser(LoginRequestDto loginRequestDto) {
         loginRequestDto.validate();
         Optional<User> userOptional = Optional.empty();
 
-        // Search by email first
         if (loginRequestDto.getEmail() != null && !loginRequestDto.getEmail().trim().isEmpty()) {
             userOptional = userRepository.findByEmail(loginRequestDto.getEmail().trim());
         }
 
-        // Search by username if email is not provided or not found
         if (userOptional.isEmpty() && loginRequestDto.getUsername() != null && !loginRequestDto.getUsername().trim().isEmpty()) {
             userOptional = userRepository.findByUsername(loginRequestDto.getUsername().trim());
         }
@@ -65,29 +61,27 @@ public class UserServiceImpl implements UserService {
 
         User user = userOptional.get();
 
-        // Validate password
         if (!passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
             throw new UserNotFoundException("Invalid credentials!");
         }
 
-        // Generate JWT with email + role
         return jwtUtil.generateToken(user.getEmail(), user.getRole());
     }
 
-    // ✅ Get user by ID
+    // Get user by ID
     @Override
     public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
     }
 
-    // ✅ Validate JWT and return user info
+    // Validate JWT and return user details
     @Override
     public UserResponseDto validateToken(String token) {
+
         String userEmail = jwtUtil.extractUsername(token);
         String userRole = jwtUtil.extractRole(token);
 
-        // Validate both email and role
         if (!jwtUtil.validateToken(token, userEmail, userRole)) {
             throw new InvalidTokenException("Invalid or expired token!");
         }
@@ -95,6 +89,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UserNotFoundException("User not found!"));
 
-        return new UserResponseDto(user.getUsername(), user.getRole());
+        return new UserResponseDto(user.getId(), user.getUsername(), user.getRole());
     }
 }

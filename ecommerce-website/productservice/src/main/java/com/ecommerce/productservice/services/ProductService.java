@@ -31,4 +31,6 @@ public interface ProductService {
 
     void increaseStock(long productId, int quantity);
 
+    void restoreStock(Long productId, Integer quantity);
+
 }

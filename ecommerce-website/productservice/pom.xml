@@ -34,6 +34,13 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!-- Kafka for Event-Driven Communication -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+
         <!-- Spring Boot Redis (Lettuce is included automatically) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

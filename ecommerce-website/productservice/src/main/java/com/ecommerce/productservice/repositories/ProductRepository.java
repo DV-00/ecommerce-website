@@ -9,17 +9,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
-
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<Product> findByTitleAndCategory(String title, Category category);
 
-    // Get product stock (quantity) by product ID
     @Query("SELECT p.quantity FROM Product p WHERE p.id = :productId")
     Integer getStockByProductId(Long productId);
 
-    // Update product stock (decrease stock on order placement)
     @Modifying
     @Transactional
     @Query("UPDATE Product p SET p.quantity = p.quantity - :quantity WHERE p.id = :productId AND p.quantity >= :quantity")

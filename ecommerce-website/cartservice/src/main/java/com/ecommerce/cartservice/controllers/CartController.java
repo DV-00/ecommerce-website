@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-
 @RestController
 @RequestMapping("/api/cart")
 @Validated
 public class CartController {
-
     private final CartService cartService;
 
     @Autowired
@@ -85,6 +83,5 @@ public class CartController {
     public ResponseEntity<Double> getCartTotal(@RequestParam Long userId) {
         return ResponseEntity.ok(cartService.getCartTotal(userId));
     }
-
 }
 
