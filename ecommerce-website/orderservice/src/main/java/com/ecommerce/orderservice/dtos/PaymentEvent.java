@@ -1,6 +1,6 @@
 package com.ecommerce.orderservice.dtos;
 
-import com.ecommerce.orderservice.models.PaymentStatus;
+import com.ecommerce.orderservice.models.PaymentStatusEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +25,7 @@ public class PaymentEvent implements Serializable {
     private String paymentId;
 
     @JsonProperty("status")
-    private PaymentStatus status;
+    private PaymentStatusEnum status;
 
     @JsonProperty("event_time")
     private LocalDateTime eventTime;

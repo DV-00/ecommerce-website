@@ -21,9 +21,9 @@ public class CartConsumer {
 
         if (cartClearEvent.getUserId() != null) {
             cartService.clearCart(cartClearEvent.getUserId());
-            logger.info("✅ Cart cleared for User ID: {}", cartClearEvent.getUserId());
+            logger.info("Cart cleared for User ID: {}", cartClearEvent.getUserId());
         } else {
-            logger.warn("⚠️ Received CartClearEvent with NULL userId");
+            logger.warn("Received CartClearEvent with NULL userId");
         }
     }
 }

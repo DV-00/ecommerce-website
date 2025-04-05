@@ -56,6 +56,7 @@ public class OrderServiceImpl implements OrderService {
                     .retrieve()
                     .bodyToMono(UserResponseDto.class)
                     .block();
+
             if (userDto == null || userDto.getUserId() == null) {
                 throw new UserNotAuthenticatedException("User authentication failed!");
             }
@@ -68,6 +69,7 @@ public class OrderServiceImpl implements OrderService {
                     .bodyToFlux(OrderItem.class)
                     .collectList()
                     .block();
+
             if (cartItems == null || cartItems.isEmpty()) {
                 throw new RuntimeException("Cart is empty!");
             }

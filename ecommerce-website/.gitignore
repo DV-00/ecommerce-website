@@ -30,7 +30,7 @@ Thumbs.db
 
 # Allow source files and configuration
 !pom.xml
-!src/
+!../src/
 !**/src/main/resources/application*.properties
 !**/src/main/resources/*.yml
 HELP.md

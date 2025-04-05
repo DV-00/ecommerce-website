@@ -1,6 +1,7 @@
 package com.ecommerce.orderservice.models;
 
-public enum PaymentStatus {
+
+public enum PaymentStatusEnum {
     SUCCESS,
     FAILED,
     PENDING,

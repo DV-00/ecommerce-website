@@ -3,6 +3,7 @@ package com.ecommerce.userservice.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
