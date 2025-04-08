@@ -53,6 +53,7 @@ public class PaymentServiceImpl implements PaymentService {
                     .build();
             paymentRepository.save(payment);
             return "http://localhost:8082/payments/process/" + paymentId;
+
         } catch (Exception ex) {
             logger.error("Error creating payment link for orderId: {}, userId: {}. Error: {}", orderId, userId, ex.getMessage(), ex);
             throw new RuntimeException("Failed to create payment link", ex);

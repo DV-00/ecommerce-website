@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.kafka.annotation.EnableKafka;
 
 
-//@EnableCaching
+@EnableCaching
 @EnableKafka
 @SpringBootApplication
 public class ProductserviceApplication {

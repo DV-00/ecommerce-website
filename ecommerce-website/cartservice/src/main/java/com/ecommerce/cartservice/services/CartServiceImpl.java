@@ -8,6 +8,7 @@ import com.ecommerce.cartservice.exceptions.ResourceNotFoundException;
 import com.ecommerce.cartservice.models.CartItem;
 import com.ecommerce.cartservice.repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,10 @@ public class CartServiceImpl implements CartService {
 
     private final CartRepository cartRepository;
     private final WebClient.Builder webClientBuilder;
-    private static final String PRODUCT_SERVICE_URL = "http://localhost:8081/products";
+    //private static final String PRODUCT_SERVICE_URL = "http://localhost:8081/products";
+
+    @Value("${productservice.base-url}/products")
+    private String productServiceUrl;
 
     @Autowired
     public CartServiceImpl(CartRepository cartRepository, WebClient.Builder webClientBuilder) {
@@ -136,7 +140,7 @@ public class CartServiceImpl implements CartService {
     private boolean checkProductStock(Long productId, int quantity) {
         try {
             Integer stock = webClientBuilder.build().get()
-                    .uri(PRODUCT_SERVICE_URL + "/{id}/stock", productId)
+                    .uri(productServiceUrl + "/{id}/stock", productId)
                     .retrieve().bodyToMono(Integer.class)
                     .defaultIfEmpty(0).block();
             return stock >= quantity;
@@ -147,7 +151,7 @@ public class CartServiceImpl implements CartService {
 
     private ProductDetailsDTO fetchProductDetails(Long productId) {
         return webClientBuilder.build().get()
-                .uri(PRODUCT_SERVICE_URL + "/{id}", productId)
+                .uri(productServiceUrl + "/{id}", productId)
                 .retrieve().bodyToMono(ProductDetailsDTO.class)
                 .block();
     }

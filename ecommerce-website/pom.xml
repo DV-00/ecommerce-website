@@ -19,6 +19,8 @@
 		<module>cartservice</module>
 		<module>orderservice</module>
 		<module>paymentservice</module>
+		<module>userservice</module>
+		<module>notificationservice</module>
 	</modules>
 
 	<!-- Parent Dependency (Spring Boot) -->

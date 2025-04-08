@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, WebClient.Builder webClientBuilder) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8080/").build();
+        this.webClient = webClientBuilder.baseUrl("http://userservice:8080/").build();
     }
 
     // ------------------ HELPER ------------------
