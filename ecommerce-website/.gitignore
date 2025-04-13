@@ -35,4 +35,3 @@ Thumbs.db
 !**/src/main/resources/*.yml
 HELP.md
 .gitattributes
-.env
