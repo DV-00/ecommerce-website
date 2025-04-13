@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
     @Value("${userservice.base-url}")
     private String userServiceBaseUrl;
 
-    @Value("${cartservice.base-url:http://localhost:8084}")
+    @Value("${cartservice.base-url:http://cartservice:8084}")
     private String cartServiceBaseUrl;
 
     @Value("${paymentservice.base-url}")

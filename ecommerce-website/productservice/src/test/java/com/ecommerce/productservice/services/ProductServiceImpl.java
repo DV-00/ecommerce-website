@@ -7,8 +7,6 @@ import com.ecommerce.productservice.models.Product;
 import com.ecommerce.productservice.repositories.CategoryRepository;
 import com.ecommerce.productservice.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,8 +14,13 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.redis.core.RedisTemplate;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Primary
 @Service
@@ -26,11 +29,16 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final WebClient webClient;
     private final CategoryRepository categoryRepository;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, WebClient.Builder webClientBuilder) {
+    public ProductServiceImpl(ProductRepository productRepository,
+                              CategoryRepository categoryRepository,
+                              WebClient.Builder webClientBuilder,
+                              RedisTemplate<String, Object> redisTemplate) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
+        this.redisTemplate = redisTemplate;
         this.webClient = webClientBuilder.baseUrl("http://userservice:8080/").build();
     }
 
@@ -53,30 +61,37 @@ public class ProductServiceImpl implements ProductService {
                 throw new UnauthorizedException("Access denied! Only admins can perform this action.");
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Log error for debugging
+            e.printStackTrace();
             throw new UnauthorizedException("Invalid token or access denied.");
         }
     }
 
     // ------------------ READ ------------------
-    @Cacheable(value = "products", key = "#pageable.pageNumber")
     @Override
     public Page<Product> getAllProducts(Pageable pageable) {
-        return productRepository.findAll(pageable);
+        String key = "products:page:" + pageable.getPageNumber();
+        Page<Product> cachedPage = (Page<Product>) redisTemplate.opsForValue().get(key);
+        if (cachedPage != null) {
+            return cachedPage;
+        }
+
+        Page<Product> page = productRepository.findAll(pageable);
+        redisTemplate.opsForValue().set(key, page);
+        return page;
     }
 
-    @Cacheable(value = "product", key = "#id", unless = "#result == null")
     @Override
     public Product getProductById(long id) {
-        try {
-            return productRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Product not found"));
-        } catch (Exception e) {
-            e.printStackTrace(); // Log error for debugging
-
-            return productRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Product not found"));
+        String key = "product:" + id;
+        Product cachedProduct = (Product) redisTemplate.opsForValue().get(key);
+        if (cachedProduct != null) {
+            return cachedProduct;
         }
+
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        redisTemplate.opsForValue().set(key, product);
+        return product;
     }
 
     @Override
@@ -85,7 +100,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     // ------------------ CREATE ------------------
-    @CacheEvict(value = {"product", "products"}, allEntries = true)
     @Override
     public Product createProduct(String token, CreateProductRequestDto dto) {
         try {
@@ -110,7 +124,9 @@ public class ProductServiceImpl implements ProductService {
             product.setCategory(category);
             product.setQuantity(dto.getQuantity());
 
-            return productRepository.save(product);
+            Product saved = productRepository.save(product);
+            redisTemplate.opsForValue().set("product:" + saved.getId(), saved);
+            return saved;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,54 +135,62 @@ public class ProductServiceImpl implements ProductService {
     }
 
     // ------------------ UPDATE ------------------
-    @CacheEvict(value = {"product", "products"}, allEntries = true)
     @Override
-    public Product updateProductPrice(String token, long productId, UpdateProductPriceDto updateProductPriceDto) {
+    public Product updateProductPrice(String token, long productId, UpdateProductPriceDto dto) {
         try {
             validateAdminRole(token);
             Product product = getProductById(productId);
-            product.setPrice(updateProductPriceDto.getUpdatedPrice());
-            return productRepository.save(product);
+            product.setPrice(dto.getUpdatedPrice());
+            Product updated = productRepository.save(product);
+            redisTemplate.opsForValue().set("product:" + productId, updated);
+            return updated;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    @CacheEvict(value = {"product", "products"}, allEntries = true)
     @Override
-    public Product updateProductImage(String token, long productId, UpdateProductImageDto updateProductImageDto) {
+    public Product updateProductImage(String token, long productId, UpdateProductImageDto dto) {
         try {
             validateAdminRole(token);
             Product product = getProductById(productId);
-            product.setImage(updateProductImageDto.getUpdatedImage());
-            return productRepository.save(product);
+            product.setImage(dto.getUpdatedImage());
+            Product updated = productRepository.save(product);
+            redisTemplate.opsForValue().set("product:" + productId, updated);
+            return updated;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    @CacheEvict(value = {"product", "products"}, allEntries = true)
     @Override
-    public Product updateProductQuantity(String token, long productId, UpdateProductQuantityDto updateProductQuantityDto) {
+    public Product updateProductQuantity(String token, long productId, UpdateProductQuantityDto dto) {
         try {
             validateAdminRole(token);
             Product product = getProductById(productId);
-            product.setQuantity(updateProductQuantityDto.getUpdatedQuantity());
-            return productRepository.save(product);
+            product.setQuantity(dto.getUpdatedQuantity());
+            Product updated = productRepository.save(product);
+            redisTemplate.opsForValue().set("product:" + productId, updated);
+            return updated;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
+    // ------------------ STOCK ------------------
     @Override
     @Transactional
     public boolean reduceStock(long productId, int quantity) {
         try {
             int updatedRows = productRepository.reduceStock(productId, quantity);
-            return updatedRows > 0;
+            if (updatedRows > 0) {
+                redisTemplate.delete("product:" + productId);
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -179,7 +203,8 @@ public class ProductServiceImpl implements ProductService {
         try {
             Product product = getProductById(productId);
             product.setQuantity(product.getQuantity() + quantity);
-            productRepository.save(product);
+            Product updated = productRepository.save(product);
+            redisTemplate.opsForValue().set("product:" + productId, updated);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -192,7 +217,8 @@ public class ProductServiceImpl implements ProductService {
             if (productOpt.isPresent()) {
                 Product product = productOpt.get();
                 product.setQuantity(product.getQuantity() + quantity);
-                productRepository.save(product);
+                Product updated = productRepository.save(product);
+                redisTemplate.opsForValue().set("product:" + productId, updated);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -200,13 +226,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     // ------------------ DELETE ------------------
-    @CacheEvict(value = {"product", "products"}, allEntries = true)
     @Override
     public boolean deleteProduct(String token, long productId) {
         try {
             validateAdminRole(token);
             if (productRepository.existsById(productId)) {
                 productRepository.deleteById(productId);
+                redisTemplate.delete("product:" + productId);
                 return true;
             }
             return false;

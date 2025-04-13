@@ -25,16 +25,21 @@ services:
       - ecommerce-net
 
   redis:
-    image: redis:latest
+    image: redis:7.2
     container_name: redis
     ports:
       - "6379:6379"
-    command: ["redis-server", "--appendonly", "yes"]
+    command: ["redis-server", "--appendonly", "yes", "--protected-mode", "no"]
     volumes:
       - redis-data:/data
     restart: always
     networks:
       - ecommerce-net
+    healthcheck: # ADD THIS SECTION
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
 
   mysql:
     image: mysql:latest
@@ -52,7 +57,7 @@ services:
 
   userservice:
     build:
-      context: ./ecommerce-website/userservice
+      context: ./userservice
       dockerfile: Dockerfile
     container_name: userservice
     ports:
@@ -61,12 +66,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/userservice_db
       SPRING_DATASOURCE_USERNAME: ${MYSQL_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_DB_PASSWORD}
-      SPRING_REDIS_HOST: redis
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     depends_on:
       - mysql
-      - redis
-      - kafka
     restart: always
     init: true
     networks:
@@ -74,7 +76,7 @@ services:
 
   productservice:
     build:
-      context: ./ecommerce-website/productservice
+      context: ./productservice
       dockerfile: Dockerfile
     container_name: productservice
     ports:
@@ -83,14 +85,18 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/productservice_db
       SPRING_DATASOURCE_USERNAME: ${MYSQL_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_DB_PASSWORD}
-      SPRING_REDIS_HOST: redis
-      SPRING_REDIS_PORT: 6379
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
     depends_on:
-      - mysql
-      - redis
-      - kafka
-      - userservice
+      mysql:
+        condition: service_started
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+      userservice:
+        condition: service_started
     restart: always
     init: true
     networks:
@@ -98,7 +104,7 @@ services:
 
   paymentservice:
     build:
-      context: ./ecommerce-website/paymentservice
+      context: ./paymentservice
       dockerfile: Dockerfile
     container_name: paymentservice
     ports:
@@ -108,15 +114,12 @@ services:
       SPRING_DATASOURCE_USERNAME: ${MYSQL_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      SPRING_REDIS_HOST: redis
       ORDERSERVICE_BASE_URL: http://orderservice:8083
       KAFKA_TOPIC_PAYMENT_STATUS: payment-events
     depends_on:
       - mysql
-      - redis
       - kafka
-      - userservice
-      - productservice
+      - orderservice
     restart: always
     init: true
     networks:
@@ -124,7 +127,7 @@ services:
 
   orderservice:
     build:
-      context: ./ecommerce-website/orderservice
+      context: ./orderservice
       dockerfile: Dockerfile
     container_name: orderservice
     ports:
@@ -134,7 +137,6 @@ services:
       SPRING_DATASOURCE_USERNAME: ${MYSQL_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      SPRING_REDIS_HOST: redis
       USERSERVICE_BASE_URL: http://userservice:8080
       PRODUCTSERVICE_BASE_URL: http://productservice:8081
       PAYMENTSERVICE_BASE_URL: http://paymentservice:8082
@@ -145,11 +147,9 @@ services:
       KAFKA_TOPIC_CART_EVENTS: cart-events
     depends_on:
       - mysql
-      - redis
       - kafka
       - userservice
       - productservice
-      - paymentservice
       - cartservice
     restart: always
     init: true
@@ -158,7 +158,7 @@ services:
 
   cartservice:
     build:
-      context: ./ecommerce-website/cartservice
+      context: ./cartservice
       dockerfile: Dockerfile
     container_name: cartservice
     ports:
@@ -167,15 +167,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/cartservice_db
       SPRING_DATASOURCE_USERNAME: ${MYSQL_DB_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_DB_PASSWORD}
-      SPRING_REDIS_HOST: redis
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       PRODUCTSERVICE_BASE_URL: http://productservice:8081
     depends_on:
       - mysql
-      - redis
       - kafka
       - productservice
-      - paymentservice
     restart: always
     init: true
     networks:
@@ -183,7 +180,7 @@ services:
 
   notificationservice:
     build:
-      context: ./ecommerce-website/notificationservice
+      context: ./notificationservice
       dockerfile: Dockerfile
     container_name: notificationservice
     ports:
