@@ -50,7 +50,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_DB_PASSWORD}
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init_with_sample_data.sql:/docker-entrypoint-initdb.d/init_with_sample_data.sql
     restart: always
     networks:
       - ecommerce-net

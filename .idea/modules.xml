@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CapstoneProject.iml" filepath="$PROJECT_DIR$/.idea/CapstoneProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/ecommerce-website/orderservice/orderservice.iml" filepath="$PROJECT_DIR$/ecommerce-website/orderservice/orderservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ecommerce-website/userservice/userservice.iml" filepath="$PROJECT_DIR$/ecommerce-website/userservice/userservice.iml" />
     </modules>
   </component>
 </project>
