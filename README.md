@@ -12,6 +12,7 @@ payment handling, and notification delivery.
 
 ## Table of Contents
 - [Services Overview](#services-overview)
+- [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
 - [Services Details](#services-details)
     - [User Service](#user-service)
@@ -25,7 +26,7 @@ payment handling, and notification delivery.
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
 - [Postman Collection or Swagger Links](#postman-collection-or-swagger-links)
-- [🚀 Future Enhancements](#-future-enhancements)
+- [Future Enhancements](#-future-enhancements)
 
 ---
 
@@ -39,6 +40,43 @@ The platform consists of the following core services:
 4. **Order Service** - Processes orders and communicates with the payment service.
 5. **Payment Service** - Manages payment processing and order payment statuses.
 6. **Notification Service** - Sends user notifications by consuming events from Kafka.
+
+---
+
+## Tech Stack
+
+**Backend Framework:**
+- Spring Boot (Java)
+- Spring Security (JWT Authentication & Role-Based Access)
+- Spring Data JPA (ORM)
+- Spring WebFlux (Used WebClient for non-blocking service-to-service calls)
+
+**Database:**
+- MySQL (Separate DB for each microservice)
+- Redis (Caching product data in Product Service)
+
+**Inter-Service Communication:**
+- REST APIs (Synchronous)
+- WebClient (Non-blocking service-to-service calls)
+- Kafka (Asynchronous messaging)
+
+**Authentication & Authorization:**
+- JWT (JSON Web Tokens)
+- BCrypt (Secure password hashing)
+
+**Containerization:**
+- Docker
+- Docker Compose
+- `.env` support for environment configuration
+
+**Dev & Build Tools:**
+- IntelliJ IDEA
+- Maven (Build automation)
+- Postman / Swagger (API Testing and Documentation)
+
+**Testing:**
+- JUnit
+- Mockito
 
 ---
 
@@ -238,7 +276,7 @@ Ensure the following software is installed on your system:
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 - Add real payment gateway (e.g., Razorpay/Stripe).
 - Integrate email/SMS notification system for order updates.
 - Build a React or Angular frontend for better user experience.

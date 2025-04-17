@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9fb563b8-ecaf-4bc4-9aae-7431131be4f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="JUnit4 &amp; Powermock" />
+        <option value="TestNG &amp; Mockito" />
+        <option value="JUnit5 &amp; Mockito" />
+        <option value="Dockerfile" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DV-00&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DV-00/ecommerce-website.git&quot;,
+    &quot;accountId&quot;: &quot;5ccefaa7-1ea1-4044-b664-dafb4da75e03&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2sXxP7eUGENee5cG12TPZqtgyiW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.All in cartservice (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in cartservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in ecommerce-website.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in notificationservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in orderservice (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in orderservice (2).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in orderservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in paymentservice (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in paymentservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in productservice (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in productservice (2).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in productservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in userservice (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in userservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartConsumerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartControllerTest.getUserCart.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.testAddToCart_InvalidRequest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.testClearCart.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.testGetCartItemCount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.testMergeCart.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.testRemoveCartItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartserviceApplicationTests (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartserviceApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.testCreateCategory_DuplicateCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.testCreateCategory_NewCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FakeStoreProductServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NotificationConsumerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NotificationServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NotificationServiceImplTest.testSendNotificationRunsWithoutError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderConsumerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderConsumerTest.testProcessPaymentStatus_OrderNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderEventConsumerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderItemRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderProducerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderRepositoryTest.testFindByStatus.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderRepositoryTest.testFindByStatusAndCreatedAtBefore.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderRepositoryTest.testFindExpiredOrders.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.cancelExpiredOrders.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.getOrderById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.placeOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.updateOrderStatus.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderserviceApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentConsumerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentProducerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentServiceImplTest.testCreatePaymentLink.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentServiceImplTest.testProcessPaymentCallback.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentServiceImplTest.testProcessPayment_UpdateFailed.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PaymentServiceImplTest.testProcessPayment_UpdateSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.testCreateProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductRepositoryTest.testFindByTitleAndCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.testCreateProduct_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.testGetAllProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.testGetProductById_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.testValidateAdminRole_Unauthorized.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductserviceApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductserviceApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RedisConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SecurityConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRepositoryTest.testFindByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceImplTest.testRegisterUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserserviceApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebClientConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebClientConfigTest.testWebClientBuilderBean.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.config in userservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.services in productservice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.userservice in userservice.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.build-all-jars.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CartserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NotificationserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OrderserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PaymentserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ProductserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/v 2.O/Downloads/github-copilot-intellij-1.5.39-241.zip&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.TestMe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ecommerce.productservice.dtos" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\CapstoneProject" />
+      <recent name="X:\CapstoneProject\ecommerce-website" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ecommerce.productservice.services" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ecommerce.productservice.services" />
+      <recent name="com.ecommerce.notificationservice.services" />
+      <recent name="com.ecommerce.notificationservice.kafka" />
+      <recent name="com.ecommerce.paymentservice.repositories" />
+      <recent name="com.ecommerce.paymentservice.kafka" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="checkForExpiredOrders" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.CartserviceApplicationTests (1)">
+    <configuration name="All in notificationservice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="notificationservice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in orderservice (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orderservice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in paymentservice (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="paymentservice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in paymentservice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="paymentservice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartserviceApplicationTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="notificationservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ecommerce.notificationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ecommerce.notificationservice" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.notificationservice.CartserviceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="cartservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.cartservice.CartserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="notificationservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.notificationservice.NotificationserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="orderservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.orderservice.OrderserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="paymentservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.paymentservice.PaymentserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="productservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.productservice.ProductserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="userservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.userservice.UserserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CartserviceApplicationTests (1)" />
+        <item itemvalue="JUnit.All in notificationservice" />
+        <item itemvalue="JUnit.All in paymentservice (1)" />
+        <item itemvalue="JUnit.All in paymentservice" />
+        <item itemvalue="JUnit.All in orderservice (2)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9fb563b8-ecaf-4bc4-9aae-7431131be4f3" name="Changes" comment="" />
+      <created>1738615711484</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738615711484</updated>
+      <workItem from="1738615720174" duration="562000" />
+      <workItem from="1738620968020" duration="2772000" />
+      <workItem from="1738683064221" duration="14980000" />
+      <workItem from="1738855972378" duration="7978000" />
+      <workItem from="1738938968021" duration="4828000" />
+      <workItem from="1739026174466" duration="27257000" />
+      <workItem from="1739990596155" duration="5750000" />
+      <workItem from="1740163359809" duration="6244000" />
+      <workItem from="1740169749961" duration="399000" />
+      <workItem from="1740323894000" duration="10589000" />
+      <workItem from="1740334628108" duration="301000" />
+      <workItem from="1740334965352" duration="6663000" />
+      <workItem from="1740898892749" duration="19266000" />
+      <workItem from="1740931520687" duration="10495000" />
+      <workItem from="1741029280495" duration="5217000" />
+      <workItem from="1741111110305" duration="3778000" />
+      <workItem from="1741359048716" duration="3283000" />
+      <workItem from="1741362420458" duration="6857000" />
+      <workItem from="1741384823591" duration="59000" />
+      <workItem from="1741384945320" duration="5020000" />
+      <workItem from="1741505688741" duration="2224000" />
+      <workItem from="1741509613818" duration="253000" />
+      <workItem from="1741509937480" duration="16707000" />
+      <workItem from="1741555080725" duration="3446000" />
+      <workItem from="1741558648717" duration="4666000" />
+      <workItem from="1741634752931" duration="9915000" />
+      <workItem from="1741706858258" duration="12404000" />
+      <workItem from="1741799209908" duration="77000" />
+      <workItem from="1741799349818" duration="419000" />
+      <workItem from="1741801309386" duration="11256000" />
+      <workItem from="1741812822518" duration="26007000" />
+      <workItem from="1741950119225" duration="2424000" />
+      <workItem from="1741953957301" duration="4125000" />
+      <workItem from="1741959259396" duration="18125000" />
+      <workItem from="1742062976045" duration="39308000" />
+      <workItem from="1742322768630" duration="14118000" />
+      <workItem from="1742726918163" duration="12228000" />
+      <workItem from="1742744549286" duration="8683000" />
+      <workItem from="1742762065497" duration="4790000" />
+      <workItem from="1742916501398" duration="1171000" />
+      <workItem from="1742917771486" duration="1194000" />
+      <workItem from="1742919061682" duration="1927000" />
+      <workItem from="1742921160111" duration="477000" />
+      <workItem from="1742921745777" duration="673000" />
+      <workItem from="1742922922241" duration="3690000" />
+      <workItem from="1742930553513" duration="10590000" />
+      <workItem from="1743013440754" duration="5174000" />
+      <workItem from="1743018752074" duration="13408000" />
+      <workItem from="1743529390049" duration="307000" />
+      <workItem from="1743530576355" duration="3995000" />
+      <workItem from="1743536088876" duration="1198000" />
+      <workItem from="1743540045894" duration="4358000" />
+      <workItem from="1743697067277" duration="9010000" />
+      <workItem from="1743706205192" duration="148000" />
+      <workItem from="1743706440963" duration="2281000" />
+      <workItem from="1743728204379" duration="17400000" />
+      <workItem from="1743940760231" duration="15150000" />
+      <workItem from="1744043447677" duration="7841000" />
+      <workItem from="1744052238509" duration="727000" />
+      <workItem from="1744082718766" duration="15934000" />
+      <workItem from="1744210738966" duration="16325000" />
+      <workItem from="1744397522658" duration="5687000" />
+      <workItem from="1744479045316" duration="1212000" />
+      <workItem from="1744482178152" duration="43218000" />
+      <workItem from="1744575758508" duration="5368000" />
+      <workItem from="1744643759352" duration="11867000" />
+      <workItem from="1744657328351" duration="14054000" />
+      <workItem from="1744832882830" duration="12300000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.xml.ws:jakarta.xml.ws-api" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
+    <option name="historyDtoById">
+      <map>
+        <entry key="2a379f">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="2a379f" />
+              <option name="initiateTms" value="1742921290619" />
+              <option name="request" value=" create test class for ProductServiceImpl" />
+              <option name="response" value="" />
+              <option name="responseDescription" value="Welcome to Machinet AI! To assist you with creating a test class for `ProductServiceImpl`, you'll first need to sign in and subscribe to our service.&#10;&#10;Please follow these steps:&#10;&#10;1. **Sign In**: Click on the 'Sign In' button at the left corner of the chat inside the IDE. You will be redirected to the [sign in page](https://plugin.machinet.net/#signin) where you can enter your email and password. If you don't have an account, you can click the 'Sign Up' button to create one.&#10;&#10;2. **Subscribe**: After signing in, please visit our [pricing page](https://plugin.machinet.net/#pricing) to choose a subscription plan. You can select either the Pro or Max subscription, or try the Pro Trial subscription for 10 days.&#10;&#10;Once you are signed in and subscribed, I will be happy to help you with your code-related tasks!" />
+              <option name="responseFileName" value="" />
+              <option name="responseFilePath" value="" />
+              <option name="responseTms" value="1742921305376" />
+              <option name="usedLocalFilePaths">
+                <list>
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/dtos/CreateProductRequestDto.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/controllers/ProductController.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/dtos/UpdateProductImageDto.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/dtos/UpdateProductPriceDto.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/dtos/UpdateProductQuantityDto.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/models/Product.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/services/ProductServiceImpl.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/models/Category.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/main/java/com/ecommerce/productservice/services/ProductService.java" />
+                  <option value="$PROJECT_DIR$/ecommerce-website/productservice/src/test/java/com/ecommerce/productservice/services/ProductServiceImplTest.java" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+        <entry key="greeting">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="greeting" />
+              <option name="initiateTms" value="1742921189329" />
+              <option name="request" value="" />
+              <option name="response" value="" />
+              <option name="responseDescription" value="&#10;Hello, I am Machinet AI - context aware chat, which can help you with your daily programming routine. How can I help?" />
+              <option name="responseTms" value="1742921191973" />
+            </ChatHistoryModel>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
