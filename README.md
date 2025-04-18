@@ -25,7 +25,7 @@ payment handling, and notification delivery.
     - [Setup Instructions](#setup-instructions)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
-- [Postman Collection or Swagger Links](#postman-collection-or-swagger-links)
+- [Postman Collection](#postman-collection)
 - [Future Enhancements](#-future-enhancements)
 
 ---
@@ -204,8 +204,8 @@ Ensure the following software is installed on your system:
     - The `.env` file is already included in the repository.
     - Open the `.env` file and update the following values with your MySQL credentials:
       ```plaintext
-      MYSQL_USER=your_mysql_username
-      MYSQL_PASSWORD=your_mysql_password
+      MYSQL_DB_USER=your_mysql_username
+      MYSQL_DB_PASSWORD=your_mysql_password
       ```
 
 ---
@@ -270,7 +270,7 @@ Ensure the following software is installed on your system:
 
 ---
 
-## Postman Collection or Swagger Links
+## Postman Collection
 
 - **Postman Collection**: [Download Postman Collection](#)
 
