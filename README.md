@@ -212,7 +212,13 @@ Ensure the following software is installed on your system:
 
 ## Running the Application
 
-1. **Start the Application**:
+1. **Create JAR Files**:
+  - Build all services using Maven:
+    ```bash
+    mvn clean install
+    ```
+    
+2. **Start the Application**:
     - Use Docker Compose to build and start all services:
       ```bash
       docker-compose up --build
@@ -272,7 +278,7 @@ Ensure the following software is installed on your system:
 
 ## Postman Collection
 
-- **Postman Collection**: [Download Postman Collection](#)
+- **Postman Collection**: [Download Postman Collection](https://app.getpostman.com/join-team?invite_code=62d5e6d8aa03bd1d480bb1a61c725ee1ef6550d0a61fa95568bfdab5c866ab0f&target_code=3a4bdd2af1a88bc43ced97dd691a9c68)
 
 ---
 
