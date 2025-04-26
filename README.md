@@ -213,10 +213,10 @@ Ensure the following software is installed on your system:
 ## Running the Application
 
 1. **Create JAR Files**:
-  - Build all services using Maven:
-    ```bash
-    mvn clean install
-    ```
+    - Build all services using Maven:
+      ```bash
+      mvn clean install
+      ```
     
 2. **Start the Application**:
     - Use Docker Compose to build and start all services:
