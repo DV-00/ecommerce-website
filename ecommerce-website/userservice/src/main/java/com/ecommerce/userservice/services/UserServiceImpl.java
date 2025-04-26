@@ -11,6 +11,7 @@ import com.ecommerce.userservice.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import org.springframework.dao.DataIntegrityViolationException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,7 +39,15 @@ public class UserServiceImpl implements UserService {
 
         user.setRole(registerUserRequestDto.getRole() != null ? registerUserRequestDto.getRole() : "CUSTOMER");
 
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        } catch (DataIntegrityViolationException ex) {
+
+            throw new RuntimeException("User already exists with same email or username");
+        } catch (Exception e) {
+
+            throw new RuntimeException("Internal error while registering user");
+        }
     }
 
     // Login user and generate JWT with role
